@@ -12,8 +12,11 @@ export class TasksService {
   }
 
   createTask(createTaskDto: CreateTaskDto): Task {
+    const { title, description } = createTaskDto;
+
     const task: Task = {
-      ...createTaskDto,
+      title,
+      description,
       id: uuid(),
       status: TaskStatus.IN_PROGRESS,
     };
